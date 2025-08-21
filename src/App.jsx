@@ -50,7 +50,7 @@ function App() {
     formData.append('image', image);
 
     try {
-      const res = await fetch('https://bg-remover-backend-4v2t.onrender.com/remove-bg', {
+      const res = await fetch('https://bg-remover-backend-6688.onrender.com/remove-bg', {
         method: 'POST',
         body: formData,
       });
