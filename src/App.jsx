@@ -50,13 +50,16 @@ function App() {
     formData.append('image', image);
 
     try {
-      const res = await fetch('https://bg-remover-backend-6688.onrender.com/remove-bg', {
+      const res = await fetch('https://bg-remover-backend-tq92.onrender.com', {
         method: 'POST',
         body: formData,
       });
 
       const blob = await res.blob();
       setResult(URL.createObjectURL(blob));
+      console.log(URL.createObjectURL(blob));
+      console.log(blob);
+
     } catch (error) {
       console.error('Error:', error);
       alert('Something went wrong!');
