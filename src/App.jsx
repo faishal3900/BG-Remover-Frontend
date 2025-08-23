@@ -52,11 +52,10 @@ function App() {
 
       const res = await fetch('https://bg-remover-backend-p3j6.onrender.com/remove-bg', {
         method: 'POST',
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: formData,
       });
+      console.log("hello");
+
 
 
       const blob = await res.blob();
@@ -128,6 +127,8 @@ function App() {
         <div className="mt-8 text-center">
           <h2 className="text-xl font-semibold mb-2 text-white">Result Image</h2>
           <img src={result} alt="Result" className="max-w-md rounded-lg shadow-lg mb-5" />
+          {console.log(result)
+          }
           <a
             href={result}
             download="no-bg.png"
