@@ -48,12 +48,13 @@ function App() {
     setLoading(true);
     const formData = new FormData();
     formData.append('image', image);
-
     try {
-      const res = await fetch('https://bg-remover-backend-tq92.onrender.com', {
+
+      const res = await fetch('https://bg-remover-backend-tq92.onrender.com/remove-bg', {
         method: 'POST',
         body: formData,
       });
+
 
       const blob = await res.blob();
       setResult(URL.createObjectURL(blob));
