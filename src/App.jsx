@@ -52,6 +52,9 @@ function App() {
 
       const res = await fetch('https://bg-remover-backend-p3j6.onrender.com/remove-bg', {
         method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: formData,
       });
 
