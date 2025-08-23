@@ -48,21 +48,21 @@ function App() {
     setLoading(true);
     const formData = new FormData();
     formData.append('image', image);
-    try {
 
+    try {
       const res = await fetch('https://bg-remover-backend-p3j6.onrender.com/remove-bg', {
         method: 'POST',
         body: formData,
+        mode: 'cors', // Ensure CORS mode
+        credentials: 'include', // Include credentials if needed
       });
-      console.log("hello");
 
-
+      if (!res.ok) {
+        throw new Error(`Server responded with ${res.status}`);
+      }
 
       const blob = await res.blob();
       setResult(URL.createObjectURL(blob));
-      console.log(URL.createObjectURL(blob));
-      console.log(blob);
-
     } catch (error) {
       console.error('Error:', error);
       alert('Something went wrong!');
